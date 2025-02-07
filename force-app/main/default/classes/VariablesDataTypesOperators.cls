@@ -18,7 +18,7 @@
  * If statements are not specifically covered in the lesson this module, but review module 2 flow control section for an overview if needed.
  * Resources: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_if_else.htm 
  * 
- * @author Your Name
+ * @author Tanner Wetnight
  */
 
 public with sharing class VariablesDataTypesOperators {
@@ -32,7 +32,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The sum of the two numbers, or null if either number is null.
      */
     public static Integer addition(Integer a, Integer b) {  
-        return null; // Replace null with the variable you used to store the result
+        Integer result;
+        if( a == null || b == null) {
+            return null;
+        }
+        result = a + b;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -44,7 +49,9 @@ public with sharing class VariablesDataTypesOperators {
      * @return The difference between the two numbers.
      */
     public static Integer subtraction(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        Integer result;
+        result = a - b;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -56,7 +63,9 @@ public with sharing class VariablesDataTypesOperators {
      * @return The product of the two numbers.
      */
     public static Integer multiplication(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        Integer result;
+        result = a * b;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -69,7 +78,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The quotient of the division, or 0 if the denominator is zero.
      */
     public static Double division(Double a, Double b) {
-        return null; // Replace null with the variable you used to store the result
+        Double result;
+        if( b == 0 ) {
+            return 0;
+        }
+        result = a / b;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -83,7 +97,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the number is even, False otherwise.
      */
     public static Boolean isEven(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean result = null;
+        if (math.mod(num,2) == 0) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -94,7 +114,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return true if the number is positive, false otherwise.
      */
     public static Boolean isPositive(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean result = null;
+        if ( num > 0 ){
+            result = true;
+        } else {
+            result = false;
+        }
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -106,7 +132,8 @@ public with sharing class VariablesDataTypesOperators {
      * @return The concatenated string.
      */
     public static String concatenateStrings(String str1, String str2) {
-        return null; // Replace null with the variable you used to store the result
+        String result = str1 + str2;
+        return result; // Replace null with the variable you used to store the result
     }
 
 	/**
@@ -121,7 +148,12 @@ public with sharing class VariablesDataTypesOperators {
 	 * @return The complete sentence as a single String.
 	 */
 	public static String createSentence(String noun, String verb, String endingPunctuation) {
-		return null; // Replace null with the variable you used to store the result
+        String result = 'The' + ' ' + noun + ' ' + 'is' + ' ' + verb + endingPunctuation; 
+
+        /*I came back to this after a day and realized I could have just put spaces at the end of the words instead of creating seperate spaces,
+        but I thought you would have a laugh at it, so I am leaving it.*/
+
+		return result; // Replace null with the variable you used to store the result
 	}
 
     /**
@@ -134,7 +166,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is in the past, False otherwise.
      */
     public static Boolean isDateInPast(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean result = null;
+        if( date.today()>dt) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -147,7 +185,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is today or in the future, False otherwise.
      */
     public static Boolean isDateTodayOrFuture(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        Boolean result = null;
+        if( date.today()<dt) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -162,7 +206,8 @@ public with sharing class VariablesDataTypesOperators {
     Integer MILLISECONDS_PER_MINUTE = null; // Make this value a constant
     public static Integer convertMinutesToMilliseconds(Integer minutes) {
         Integer milliseconds;
-        return null; // Replace null with the variable you used to store the result
+        Integer result = (milliseconds = minutes * 60000);
+        return result; // Replace null with the variable you used to store the result
     }    
 
     /**
@@ -176,7 +221,9 @@ public with sharing class VariablesDataTypesOperators {
      * @return The average of the three numbers.
      */
     public static Double averageOfThreeNumbers(Integer a, Integer b, Integer c) {
-        return null; // Replace null with the variable you used to store the result
+        Integer sum = (a+b+c);
+        Integer result = sum / 3;
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -191,10 +238,10 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Integer adjustOrderOfOperations1(Integer a, Integer b, Integer c) {
         // Add parentheses around the addition operation so that it is performed before multiplication
-        Integer result = a + b * c;
+        Integer result = (a + b) * c;
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -206,8 +253,8 @@ public with sharing class VariablesDataTypesOperators {
         // Add parentheses in the below expression to change the result.
         // The result of the expression as it is right now is 43. 
         // You should add parentheses so that the result of the expression becomes 8.
-        Integer answer = 48 - 15 + 5 * 2;
-        return null; // Replace null with the variable you used to store the result
+        Integer answer = 48 - (15 + 5) * 2;
+        return answer; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -226,9 +273,9 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Double complexOrderOfOperations(Integer a, Integer b, Integer c, Integer d, Integer e) {
         // Add parentheses around the multiplication and subtraction operations so that they are performed before division and addition
-        Double result = a * b - c / (Double) d + e;
+        Double result = ( a * b - c )/ (Double) d + e;
 
-        return null; // Replace null with the variable you used to store the result
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -242,8 +289,9 @@ public with sharing class VariablesDataTypesOperators {
         final Double SUBTRACT_FACTOR = 32.0;
         final Double MULTIPLY_FACTOR = 5.0;
         final Double DIVIDE_FACTOR = 9.0;
+        Double badtempsystem = (fahrenheit - SUBTRACT_FACTOR)*(MULTIPLY_FACTOR/DIVIDE_FACTOR);
     
-        return null; // Replace null with the variable you used to store the result
+        return badtempsystem; // Replace null with the variable you used to store the result
     }
 
     
@@ -259,11 +307,12 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Integer performDivisionAndCast(Double a, Double b) {
         // Perform the division and cast (round down) off the result.
-        Double divisionResult = null;
+        Double divisionResult = a/b;
+
 
         // Write the code for type casting the divisionResult to an Integer
-        Integer roundedResult = null;
-        return null; // Replace null with the variable you used to store the result
+        Integer roundedResult = Integer.valueof(divisionResult);
+        return roundedResult; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -276,8 +325,10 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the weekly paycheck.
      */
     public static Decimal calculateWeeklyPaycheck(Decimal hourlyRate, Double numberOfHours) {
+        Decimal weekly = hourlyRate * numberOfHours; 
+
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
-        return null; // Replace null with the variable you used to store the result
+        return weekly; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -291,7 +342,9 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the monthly paycheck.
      */
     public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
-        return null; // Replace null with the variable you used to store the result
+        Decimal weekly = hourlyRate * numberOfHours;
+        Decimal monthly = weekly * 4;
+        return monthly; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -305,6 +358,8 @@ public with sharing class VariablesDataTypesOperators {
      * @return The total cost after applying the sales tax.
      */
     public static Decimal calculateTotalCost(Decimal pricePerUnit, Integer numberOfUnits, Decimal salesTaxRate) {
-        return null; // Replace null with the variable you used to store the result
+        Decimal totcost = (pricePerUnit * numberOfUnits) * (1 + salesTaxRate);
+        return totcost; // Replace null with the variable you used to store the result
     }
 }
+//worked
